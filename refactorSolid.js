@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const car_1 = require("./model/car");
 const engine_1 = require("./model/engine");
 const musicplayer_1 = require("./model/musicplayer");
+const fuelTank_1 = require("./model/fuelTank");
 // When you see <cast>variable this is a "cast" of a variable, explicitly telling the code what the type of this variable will be.
 // This is sometimes needed when a default JS function does not return a precise enough Type.
 // I need to cast this to HtmlElement because the default Element return type is not specific to the HTML context (because some versions of JS can also be used in the backend, see node.js)
@@ -18,6 +19,7 @@ const audioElement = document.querySelector('#car-music');
 let car = new car_1.Car();
 let musicPlayer = new musicplayer_1.MusicPlayer();
 let engine = new engine_1.Engine(100);
+let fuelTank = new fuelTank_1.FuelTank();
 musicToggleElement.addEventListener('click', () => {
     if (musicPlayer.musicLevel === 0) {
         musicPlayer.turnMusicOn();

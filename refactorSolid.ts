@@ -1,6 +1,7 @@
 import {Car} from './model/car'
 import {Engine} from './model/engine'
 import {MusicPlayer}  from './model/musicplayer';
+import {FuelTank} from "./model/fuelTank";
 // When you see <cast>variable this is a "cast" of a variable, explicitly telling the code what the type of this variable will be.
 // This is sometimes needed when a default JS function does not return a precise enough Type.
 // I need to cast this to HtmlElement because the default Element return type is not specific to the HTML context (because some versions of JS can also be used in the backend, see node.js)
@@ -17,6 +18,7 @@ const audioElement = <HTMLAudioElement>document.querySelector('#car-music');
 let car = new Car();
 let musicPlayer =  new MusicPlayer()
 let engine = new Engine(100);
+let fuelTank = new FuelTank()
 
 musicToggleElement.addEventListener('click', () => {
     if(musicPlayer.musicLevel === 0) {
