@@ -14,20 +14,29 @@ class Car {
         this.FUEL_MILEAGE = 10;
         this._engine = new engine_1.Engine();
         this._musicPlayer = new musicplayer_1.MusicPlayer();
-        this.fuelTank = new fuelTank_1.FuelTank(100);
+        this._fuelTank = new fuelTank_1.FuelTank(100);
+    }
+    get engine() {
+        return this._engine;
+    }
+    get musicPlayer() {
+        return this._musicPlayer;
+    }
+    get fuelTank() {
+        return this._fuelTank;
     }
     get miles() {
         return this._miles;
     }
     //Take attention to these getter and setters
     drive() {
-        if (this._engine.engineStatus === false || this.fuelTank.fuel <= 0) {
+        if (this._engine.engineStatus === false || this._fuelTank.fuel <= 0) {
             //what I am doing here is a good principle called "failing early"
             // If you have some conditions you need to check, that will exclude most of the code in your function check that first
             // This prevents your "happy path" of code to be deeply indented.
             return;
         }
-        this.fuelTank.consumeFuel();
+        this._fuelTank.consumeFuel();
         this._miles += this.FUEL_MILEAGE;
     }
 }

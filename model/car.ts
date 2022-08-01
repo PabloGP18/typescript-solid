@@ -8,7 +8,7 @@ export class Car {
     private _miles : number = 0;
     private _engine: Engine;
     private _musicPlayer: MusicPlayer;
-    private fuelTank: FuelTank;
+    private _fuelTank: FuelTank;
 
     //By changing this variable to readonly I have in essence created a property constant.
     // the only subtle difference is that you can write once to the variable inside the constructor
@@ -17,7 +17,20 @@ export class Car {
     constructor() {
         this._engine = new Engine();
         this._musicPlayer = new MusicPlayer();
-        this.fuelTank = new FuelTank(100);
+        this._fuelTank = new FuelTank(100);
+    }
+
+
+    get engine(): Engine {
+        return this._engine;
+    }
+
+    get musicPlayer(): MusicPlayer {
+        return this._musicPlayer;
+    }
+
+    get fuelTank(): FuelTank {
+        return this._fuelTank;
     }
 
     get miles(): number {
@@ -29,14 +42,16 @@ export class Car {
 
 
     drive() {
-        if(this._engine.engineStatus === false || this.fuelTank.fuel <= 0) {
+        if(this._engine.engineStatus === false || this._fuelTank.fuel <= 0) {
             //what I am doing here is a good principle called "failing early"
             // If you have some conditions you need to check, that will exclude most of the code in your function check that first
             // This prevents your "happy path" of code to be deeply indented.
             return;
         }
 
-        this.fuelTank.consumeFuel();
+        this._fuelTank.consumeFuel();
         this._miles += this.FUEL_MILEAGE;
     }
+
+
 }
