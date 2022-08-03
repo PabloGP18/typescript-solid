@@ -15,3 +15,17 @@ Refactor the code, so we have at least a separate class for Car, Engine and Musi
 
 ### Extra challenge
 Make a new type of Engine that also consumes Fuel
+
+## What I found about the Single responsibility principle
+“There should never be more than one reason for a class to change.”
+
+Therefore, a class should have one purpose/responsibility and only one reason to change. Following this principle leads to better maintenance of the code and minimizes potential side effects.
+
+In the following bad example, you see how there are multiple responsibilities. First, we model a book and save the book as a file. We ran into two purposes here:
+![Singe_responsiblity_principle](../Images/SRP.png)
+
+The second example shows you how to deal with this by following the Single Responsibility Principle. Instead of having only one class, we have two classes, one for each purpose.
+![Singe_responsiblity_principle](../Images/SRPgoodversion.png)
+
+
+
