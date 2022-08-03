@@ -35,4 +35,13 @@ Create a `makeSound` function to each Animal class and remove the giant switch f
 
 ## What I found about the Open-Close Principle
 
+“Software entities … should be open for extension, but closed for modification.”
 
+Instead of overriding your class, better extend it. It should be easy to extend the code with new features w/o touching the old code. For instance, implementing an interface or class is very helpful here.
+
+In the following example, you’ll see the wrong way of doing it.
+We used a third class called AreaCalculator to calculate the area of the Rectangle and Circle classes. Imagine we would add another shape later, which means we need to create a new class. In that case, we would also need to modify the AreaCalculator class to calculate the area of the new class. That’s against the Open-Close Principle.
+![Open_Close_Principle](../Images/OCPbad.png)
+
+So, what can we do to improve this code? To follow the Open-Close Principle, we add an interface called Shape, so every shape class (Rectangle, Circle, etc.) can depend on this interface by implementing it. In this way, we can simplify the AreaCalculator class to just one function, which takes an argument, and this argument is based on the interface we just created.
+![Open_Close_Principle](../Images/OCPgood.png)
